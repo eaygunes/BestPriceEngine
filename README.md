@@ -8,9 +8,9 @@ Thanks to the aggregation engine approach, you can avoid querying large tables t
 The engine always keeps the aggregations up to date by using SQL Server's Change Tracking feature. This is useful when you cannot use triggers or when you don't have an event driven architecture (otherwise you can substitute event consumer code for Change Tracking parts).
 
 ## Runtime phases:
--On startup, engine loads entire Advertisement table, and processes it.
--Afterwards, each second, engine queries Change Tracking table to get the updates since the last query, and then processes those updates.
--Once engine processes updates, it puts the aggregation values into BestPrices table in the DB.
+- On startup, engine loads entire Advertisement table, and processes it.
+- Afterwards, each second, engine queries Change Tracking table to get the updates since the last query, and then processes those updates.
+- Once engine processes updates, it puts the aggregation values into BestPrices table in the DB.
 
 ## Prerequisites:
 -Sql Server has to be used as DB.
