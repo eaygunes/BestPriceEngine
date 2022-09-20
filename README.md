@@ -13,8 +13,8 @@ The engine always keeps the aggregations up to date by using SQL Server's Change
 - Once engine processes updates, it puts the aggregation values into BestPrices table in the DB.
 
 ## Prerequisites:
--Sql Server has to be used as DB.
--Change Tracking has to be enabled on DB and also on the Advertisements table (now column tracking needed).
+- Sql Server has to be used as DB.
+- Change Tracking has to be enabled on DB and also on the Advertisements table (now column tracking needed).
 
 
 ## Code Organization:
