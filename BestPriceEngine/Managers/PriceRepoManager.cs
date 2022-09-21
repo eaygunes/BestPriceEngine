@@ -57,7 +57,7 @@ namespace BestPriceEngine.Managers
             var sqlQueryDeleteAllRecords = SqlQueries.BestPricesTableDeleteAllRecordsQuery;
 
             var count = connection.Execute(sqlQueryDeleteAllRecords);
-            logger.LogError("InvalidateBestPricesInDb: Deleted record count: {}", count);
+            logger.LogInformation("InvalidateBestPricesInDb: Deleted record count: {}", count);
         }
 
         public void UpdateBestPricesInDbForAllRepos()
