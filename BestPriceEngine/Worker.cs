@@ -15,10 +15,10 @@ namespace BestPriceEngine
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            await Task.Delay(1000, stoppingToken);
+
             logger.LogInformation("Price Engine started at: {time}", DateTimeOffset.Now);
             eventConsumerManager.ProcessInitialDataFromDb();
-
-            await Task.Delay(1000, stoppingToken);
 
             while (!stoppingToken.IsCancellationRequested)
             {

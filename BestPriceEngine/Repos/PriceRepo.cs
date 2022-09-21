@@ -126,7 +126,7 @@ namespace BestPriceEngine.Repos
                 else
                 {
                     MinPrice = sortedAscendingPriceList[0].Price;
-                    MinPrice = sortedAscendingPriceList[sortedAscendingPriceList.Count - 1].Price;
+                    MaxPrice = sortedAscendingPriceList[sortedAscendingPriceList.Count - 1].Price;
                 }
             }
 
@@ -146,7 +146,7 @@ namespace BestPriceEngine.Repos
             using var connection = new SqlConnection(sqlConnStr);
             connection.Open();
 
-            var sqlQueryDeleteOldIfExists = SqlQueries.BestPricesTableDeleteAllRecordsQuery;
+            var sqlQueryDeleteOldIfExists = SqlQueries.BestPricesTableDeleteOldRecordQuery;
             var sqlQueryAddNewBestPrices = SqlQueries.BestPricesTableAddNewBestPricesQuery;
 
             var sqlQuery = string.Empty;
@@ -170,7 +170,7 @@ namespace BestPriceEngine.Repos
                 });
 #pragma warning restore IDE0037 // Use inferred member name
 
-            if (count != 1)
+            if (count < 1)
             {
                 logger.LogError("AddNewListingPrice - Failed on updating DB for product {}", ProductId);
             }

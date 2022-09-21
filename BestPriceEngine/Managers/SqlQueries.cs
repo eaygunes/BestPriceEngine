@@ -23,6 +23,8 @@ namespace BestPriceEngine.Managers
 
         public const string BestPricesTable = "BestProductPrices";
 
+        public const string BestPricesTableDeleteOldRecordQuery = "UPDATE [BestProductPrices] SET IsDeleted = 1 where ProductId=@ProductId AND IsDeleted = 0;";
+
         public const string BestPricesTableDeleteAllRecordsQuery = "UPDATE [BestProductPrices] SET IsDeleted = 1 where IsDeleted = 0;";
 
         public const string BestPricesTableAddNewBestPricesQuery = @"INSERT INTO [BestProductPrices] ([ProductId], [PriceMax], [PriceMin], [ListingCount], [UpdateTime], [IsDeleted]) 
